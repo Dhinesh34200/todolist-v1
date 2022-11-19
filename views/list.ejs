@@ -1,0 +1,49 @@
+    <%- include("header") -%>
+    <body>
+        <div class="box" id="heading">
+            <h1><%= kindOfDay %></h1>
+
+        </div>
+        <div class="box">
+            
+                <% newtodoItem.forEach((item)=>{ %>
+                    <form action="/delete" method="post">
+                    <div class="item">
+                        <input type="checkbox" name="checkbox" value="<%= item._id %>" onchange="this.form.submit()">
+                        <p><%= item.name %></p>        
+                              
+                    </div> 
+                    <input type="hidden" name="listName" value="<%=kindOfDay%> "></input>         
+                </form>
+                <% }) %>
+
+           
+            
+        
+            <!-- <% for(let n of newtodoItem){ %>
+                <div class="item">
+                    <input type="checkbox">
+                    <p>
+                        <%= n.name %>
+                    </p>
+                </div>
+        
+        
+                <% } %> -->
+
+                <form class="item" action="/" method="post">
+                    <input type="text" name="newItem" placeholder="New item" autocomplete="off">
+                    <button type="submit" name="button" value="<%= kindOfDay %>">+</button>
+                    
+                </form>
+        
+        
+        </div>
+        
+        
+        
+        
+        <script src="" async defer></script>
+    </body>
+    <%- include("footer") -%>
+</html>
